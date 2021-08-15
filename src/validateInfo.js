@@ -9,12 +9,15 @@ export default function validateInfo(values) {
 
   if (!values.email) {
     errors.email = 'Email required';
-  } else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(values.email)) {
+  } else if (!/^([\w.-]+)@(\[(\d{1,3}\.){3}|(?!hotmail|yahoo|gmx|ymail|outlook|bluewin|protonmail|t\-online|web\.|online\.|aol\.|live\.)(([a-zA-Z\d-]+\.)+))([a-zA-Z]{2,63}|\d{1,3})(\]?)$/.test(values.email)) {
     errors.email = 'Email address is invalid';
-  }
+  } 
+
+
+
   if (!values.number) {
     errors.number = 'Password is required';
-  } if (!/^(?:\d{2}-\d{3}-\d{3}-\d{3}|\d{9})$/.test(values.number)) {
+  }else if (!/^(?:\d{2}-\d{3}-\d{3}-\d{3}|\d{9})$/.test(values.number)) {
     errors.number = 'Invalid';
   }
   return errors;
