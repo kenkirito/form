@@ -16,7 +16,7 @@ export default function validateInfo(values) {
 
 
   if (!values.number) {
-    errors.number = 'Password is required';
+    errors.number = 'number is required';
   }else if (!/^(?:\d{2}-\d{3}-\d{3}-\d{3}|\d{9})$/.test(values.number)) {
     errors.number = 'Invalid';
   }
